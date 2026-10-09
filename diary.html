@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="diary-title">Learning Log</title>
+    <style>
+        /* 🎨 前の　2026-05-01.html のお気に入りデザイン（CSS）をそのまま持ってきました！ */
+
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f9f9f9; color: #333; padding: 20px; }
+        h1 { text-align: center; color: #4a4a4a; }
+        table { border-collapse: separate; border-spacing: 0; width: 100%; max-width: 800px; margin: 20px auto; background-color: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
+        th { background-color: #4a4a4a; color: white; font-weight: bold; padding: 15px; text-align: center; border: none; }
+        td { padding: 12px 15px; border-bottom: 1px solid #eee; text-align: left; vertical-align: middle; }
+        .short-row td { padding-top: 2px; padding-bottom: 2px; background-color: #fafafa; font-size: 0.85em; color: #888; }
+        .placeholder { color: #bbb; }
+        .placeholder:focus { background-color: #fffde7; outline: none; border: 1px solid #ffcc80; }
+
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            table { font-size: 14px; }
+            td:first-child { width: 80px; font-size: 0.85em; }
+        }
+
+        /* 🌙 ダークモード設定も引き継いでいます */
+        html.dark body { background-color: #1e1e1e; color: #f5f5f5; }
+        html.dark h1 { color: #f5f5f5; }
+        html.dark table { background-color: #2d2d2d; border-color: #444; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        html.dark th { background-color: #3d3d3d; border-bottom-color: #444; color: #fff; }
+        html.dark td { border-bottom-color: #888; border-right-color: #f5f5f5; color: #f5f5f5; }
+        html.dark td:first-child { background-color: #2d2d2d; border-right-color: #888; }
+        html.dark .short-row td { background-color: #666; color: #999; }
+
+         /* ダークモードで入力エリア（.placeholder）をクリックした時 */
+        html.dark .placeholder:focus {
+            background-color: #2d2d2d; /* ライトモードの薄黄色を打ち消して、暗い色にする */
+            border: 1px solid #ffcc80; /* 枠線は綺麗にオレンジ（薄黄色）に光らせる */
+            color: #f5f5f5;            /* 💡文字色を少し明るい白系にしておくと読みやすくなります！ */
+        }
+    </style>
+</head>
+<body>
+    
+     <h1>My Schedule (<span id="diary-date">5月0日</span>)</h1>
+    
+     <div style="max-width: 800px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">   
+       <a href="index.html" style="text-decoration: none; color: #4a4a4a; font-size: 0.9em;">← カレンダーに戻る</a>
+       <button id="darkModeBtn" onclick="toggleDarkMode()" style="padding: 10px 20px; font-size: 16px; cursor: pointer; border-radius: 8px; border: 1px solid #ddd; background: #fff; transition: all 0.3s;">
+           🌙 ダークモードにする
+       </button>
+    </div>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>時間割</th>
+                <th>内　容</th>
+                <th>メ　モ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1時限目<br><small>9:30 - 10:20</small></td>
+                <td id="period-1">（データなし）</td>
+                <td contenteditable="true" class="placeholder">（ここにクリックして入力できます）</td> 
+            </tr>
+            <tr class="short-row">
+                <td>小休憩<br><small>10:20 - 10:30</small></td>
+                <td colspan="2" contenteditable="true" class="placeholder">リフレッシュ / ストレッチなど（ここにクリックして入力できます）</td>
+            </tr>
+            <tr>
+                <td>2時限目<br><small>10:30 - 11:20</small></td>
+                <td id="period-2">（データなし）</td>
+                <td contenteditable="true" class="placeholder">（ここにクリックして入力できます）</td>
+            </tr>
+            <tr class="short-row">
+                <td>小休憩<br><small>11:20 - 11:30</small></td>
+                <td colspan="2" contenteditable="true" class="placeholder">リフレッシュ / ストレッチなど（ここにクリックして入力できます）</td>
+            </tr>
+            <tr>
+                <td>3時限目<br><small>11:30 - 12:20</small></td>
+                <td id="period-3">（データなし）</td>
+                <td contenteditable="true" class="placeholder">（ここにクリックして入力できます）</td>
+            </tr>
+            <tr class="short-row">
+                <td>お昼休憩<br><small>12:20 - 13:20</small></td>
+                <td colspan="2" contenteditable="true" class="placeholder">韓国料理屋さんなど（ここにクリックして入力できます）</td>
+            </tr>
+            <tr>
+                <td>4時限目<br><small>13:20 - 14:10</small></td>
+                <td id="period-4">（データなし）</td>
+                <td contenteditable="true" class="placeholder">（ここにクリックして入力できます）</td>
+            </tr>
+            <tr class="short-row">
+                <td>小休憩<br><small>14:10 - 14:20</small></td>
+                <td colspan="2" contenteditable="true" class="placeholder">リフレッシュ / ストレッチなど（ここにクリックして入力できます）</td>
+            </tr>
+            <tr>
+                <td>5時限目<br><small>14:20 - 15:10</small></td>
+                <td id="period-5">（データなし）</td>
+                <td contenteditable="true" class="placeholder">（ここにクリックして入力できます）</td>
+            </tr>
+            <tr class="short-row">
+                <td>小休憩<br><small>15:10 - 15:20</small></td>
+                <td colspan="2" contenteditable="true" class="placeholder">リフレッシュ / ストレッチなど（ここにクリックして入力できます）</td>
+            </tr>
+            <tr>
+                <td>6時限目<br><small>15:20 - 16:20</small></td>
+                <td id="period-6">（データなし）</td>
+                <td contenteditable="true" class="placeholder">（ここにクリックして入力できます）</td>
+            </tr>
+            <tr>
+                <td>夜・自由時間</td>
+                <td id="period-7">（データなし）</td>
+                <td contenteditable="true" class="placeholder">（ここにクリックして入力できます）</td>
+            </tr>
+
+        </tbody>
+    </table>
+    <script>
+        // 📦 31日分のスケジュールデータ（Excelデータの代わりです）
+        // 1つの日付の中に、1限、2限、3限の内容をセットにして入れておきます！（それ以降も追加済み）
+        const diaryData = {
+            "2026-05-01": {
+                p1: "HTMLの復習",
+                p2: "CSSの調節",
+                p3: "休憩",
+                p4: "応用練習",
+                p5: "ポートフォリオ作成",
+                p6: "夕方の休憩",
+                p7: "リラックス・自主学習"
+            },
+            "2026-05-02": {
+                p1: "JavaScriptの仕組み",
+                p2: "手入力で写経！",
+                p3: "のんびり",
+                p4: "応用練習",
+                p5: "ポートフォリオ作成",
+                p6: "夕方の休憩",
+                p7: "リラックス・自主学習"
+            },
+            "2026-05-03": {
+                p1: "憲法記念日でお休み！",
+                p2: "お風呂でまったり",
+                p3: "ぐーたら",
+                p4: "ぐーたら",
+                p5: "ぐーたら",
+                p6: "ぐーたら",
+                p7: "ぐーたら"
+            }
+        };
+
+
+        // URLから日付（?date=xxxx-xx-xx」を読み込む
+        const urlParams = new URLSearchParams(window.location.search);
+        const selectedDate = urlParams.get('date');
+
+        if (selectedDate) {
+            // 表示用の日付を「5月1日」の形にちょっとおめかしする処理
+            const dateObj = new Date(selectedDate);
+            const formattedDate = `${dateObj.getMonth() + 1}月${dateObj.getDate()}日`;
+
+            // 画面の日付テキストを書き換える
+            document.getElementById('diary-date').textContent = formattedDate;
+            document.getElementById('diary-title').textContent = `Learning Log - ${selectedDate}`;
+
+            // 💡 もしデータが存在したら、表の中に文字を流し込む！
+            if (diaryData[selectedDate]) {
+                document.getElementById('period-1').textContent = diaryData[selectedDate].p1;
+                document.getElementById('period-2').textContent = diaryData[selectedDate].p2;
+                document.getElementById('period-3').textContent = diaryData[selectedDate].p3;
+                document.getElementById('period-4').textContent = diaryData[selectedDate].p4;
+                document.getElementById('period-5').textContent = diaryData[selectedDate].p5;
+                document.getElementById('period-6').textContent = diaryData[selectedDate].p6;
+                document.getElementById('period-7').textContent = diaryData[selectedDate].p7;
+
+            }
+        } else {
+            // 💡 【ここの追加！】日付が選ばれていないときのフォールバック
+            document.getElementById('diary-date').textContent = "日付未選択";
+            document.getElementById('diary-tiile').textContent = "Learning Log -日付を選んでください";
+
+            // ついでに、表の中身に「カレンダーから選んでね」と優しく書いておくとさらに親切です！
+            document.getElementById('period-1').textContent = "← 左のカレンダーから日付を選択してください。";
+
+        }
+
+        // ダークモードの関数（こちらもバッチリ引き継ぎ）
+        function toggleDarkMode(){
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            const btn = document.getElementById('darkModeBtn');
+            if (isDark) {
+                btn.innerHTML = '☀️ ライトモードにする'; btn.style.background = '#333'; btn.style.color = '#fff'; btn.style.borderColor = '#555';                
+            } else {
+                btn.innerHTML = '🌙 ダークモードにする'; btn.style.background = '#fff'; btn.style.color = '#333'; btn.style.borderColor = '#ddd';
+            }
+        } 
+
+    </script>
+</body>
+</html>
